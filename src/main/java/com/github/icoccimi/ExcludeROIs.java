@@ -17,10 +17,10 @@ import ij.plugin.frame.RoiManager;
 /**
  *
  */
-@Plugin(type = Command.class, label = "Exclude ROIs", menu = {
+@Plugin(type = Command.class, label = "Border Exclude ROIs", menu = {
         @Menu(label = MenuConstants.PLUGINS_LABEL, weight = Double.POSITIVE_INFINITY, mnemonic = MenuConstants.PLUGINS_MNEMONIC),
         @Menu(label = "Border Exclusion", weight = Double.POSITIVE_INFINITY, mnemonic = 's'),
-        @Menu(label = "Exclude ROIs", weight = Double.POSITIVE_INFINITY, mnemonic = 'e')
+        @Menu(label = "Border Exclude ROIs", weight = Double.POSITIVE_INFINITY, mnemonic = 'e')
 })
 public class ExcludeROIs implements Command {
     @Parameter
@@ -29,7 +29,7 @@ public class ExcludeROIs implements Command {
     @Parameter
     ImagePlus imp;
 
-    @Parameter
+    @Parameter(label = "Keep Overlaps")
     Boolean keep_overlaps;
 
     @Override

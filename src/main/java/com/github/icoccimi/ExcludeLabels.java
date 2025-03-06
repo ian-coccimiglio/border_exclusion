@@ -15,10 +15,10 @@ import ij.gui.WaitForUserDialog;
 /**
  *
  */
-@Plugin(type = Command.class, label = "Exclude Labels", menu = {
+@Plugin(type = Command.class, label = "Border Exclude Labels", menu = {
         @Menu(label = MenuConstants.PLUGINS_LABEL, weight = Double.POSITIVE_INFINITY, mnemonic = MenuConstants.PLUGINS_MNEMONIC),
         @Menu(label = "Border Exclusion", weight = Double.POSITIVE_INFINITY, mnemonic = 's'),
-        @Menu(label = "Exclude Labels", weight = Double.POSITIVE_INFINITY, mnemonic = 'e')
+        @Menu(label = "Border Exclude Labels", weight = Double.POSITIVE_INFINITY, mnemonic = 'e')
 })
 public class ExcludeLabels implements Command {
     @Parameter
