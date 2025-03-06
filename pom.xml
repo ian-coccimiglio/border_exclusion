@@ -12,22 +12,22 @@
 		<relativePath />
 	</parent>
 
-	<groupId>com.mycompany</groupId>        <!-- FIXME: Your organization groupId here -->
-	<artifactId>GaussFiltering</artifactId> <!-- FIXME: Your project artifactId here   -->
+	<groupId>net.imagej</groupId>        <!-- FIXME: Your organization groupId here -->
+	<artifactId>border-exclusion</artifactId> <!-- FIXME: Your project artifactId here   -->
 	<version>0.1.0-SNAPSHOT</version>
 
-	<name>Gauss Filtering</name>                                               <!-- FIXME: Your project name here          -->
-	<description>A Maven project implementing an ImageJ command.</description> <!-- FIXME: Your project description here   -->
-	<url>https://mycompany.com/imagej/gauss-filtering/</url>                   <!-- FIXME: Your project website here       -->
-	<inceptionYear>2017</inceptionYear>                                        <!-- FIXME: Your project starting year here -->
+	<name>Border Exclusion</name>                                               <!-- FIXME: Your project name here          -->
+	<description>A Maven project implementing Border Exclusion for ROIs, Label, and Binary images </description> <!-- FIXME: Your project description here   -->
+	<url>https://github.com/ian-coccimiglio/border_exclusion</url>                   <!-- FIXME: Your project website here       -->
+	<inceptionYear>2025</inceptionYear>                                        <!-- FIXME: Your project starting year here -->
 	<organization>
-		<name>My Company</name>           <!-- FIXME: Your organization name here    -->
-		<url>https://mycompany.com/</url> <!-- FIXME: Your organization website here -->
+		<name>ifc_tools</name>           <!-- FIXME: Your organization name here    -->
+		<url>https://github.com/ian-coccimiglio/</url> <!-- FIXME: Your organization website here -->
 	</organization>
 	<licenses>
 		<license>                         <!-- FIXME: Your license here -->
-			<name>CC0</name>
-			<url>https://creativecommons.org/publicdomain/zero/1.0/</url>
+			<name>MIT License</name>
+			<url>https://opensource.org/licenses/MIT</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
@@ -35,9 +35,9 @@
 	<developers>
 		<!-- See https://imagej.net/Team -->
 		<developer>
-			<id>octocat</id>                                          <!-- FIXME: Your GitHub handle here -->
-			<name>Noma Onomatopoeia</name>                            <!-- FIXME: Your name here          -->
-			<url>https://mycompany.com/people/noma-onomatopoeia</url> <!-- FIXME: Your website here       -->
+			<id>ian-coccimiglio</id>                                          <!-- FIXME: Your GitHub handle here -->
+			<name>Ian Coccimiglio</name>                            <!-- FIXME: Your name here          -->
+			<url>https://github.com/ian-coccimiglio/</url> <!-- FIXME: Your website here       -->
 			<roles>
 				<role>founder</role>
 				<role>lead</role>
@@ -77,9 +77,9 @@
 	</ciManagement>
 
 	<properties>
-		<package-name>com.mycompany.imagej</package-name>                   <!-- FIXME: Your project package prefix here -->
-		<main-class>com.mycompany.imagej.GaussFiltering</main-class>        <!-- FIXME: Your project main class here, or delete for none -->
-		<license.licenseName>cc0</license.licenseName>                      <!-- FIXME: Your license-maven-plugin license code here -->
+		<package-name>com.github.icoccimi</package-name>                   <!-- FIXME: Your project package prefix here -->
+		<main-class>com.github.icoccimi.ExcludeLabels</main-class>        <!-- FIXME: Your project main class here, or delete for none -->
+		<license.licenseName>MIT License</license.licenseName>                      <!-- FIXME: Your license-maven-plugin license code here -->
 		<license.copyrightOwners>My Company, Inc.</license.copyrightOwners> <!-- FIXME: Your organization legal entity name here -->
 	</properties>
 
@@ -94,6 +94,10 @@
 		<dependency>
 			<groupId>net.imagej</groupId>
 			<artifactId>imagej</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej-legacy</artifactId>
 		</dependency>
 	</dependencies>
 </project>
