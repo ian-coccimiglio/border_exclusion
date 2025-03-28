@@ -15,11 +15,7 @@ import ij.gui.WaitForUserDialog;
 /**
  *
  */
-@Plugin(type = Command.class, label = "Border Exclude Labels", menu = {
-        @Menu(label = MenuConstants.PLUGINS_LABEL, weight = Double.POSITIVE_INFINITY, mnemonic = MenuConstants.PLUGINS_MNEMONIC),
-        @Menu(label = "Border Exclusion", weight = Double.POSITIVE_INFINITY, mnemonic = 's'),
-        @Menu(label = "Border Exclude Labels", weight = Double.POSITIVE_INFINITY, mnemonic = 'e')
-})
+@Plugin(type = Command.class, menuPath = "Plugins>Border Exclusion>Border Exclude Labels")
 public class ExcludeLabels implements Command {
     @Parameter
     ImagePlus imp;
@@ -29,6 +25,9 @@ public class ExcludeLabels implements Command {
 
     @Override
     public void run() {
+        if (imp.isRGB() || imp.isComposite()){
+            IJ.error("You can't use this command as a composite/RGB image");
+        }
         if (imp.getRoi() == null) {
             WaitForUserDialog wait_dialog = new WaitForUserDialog("Draw an ROI");
             wait_dialog.setVisible(true);

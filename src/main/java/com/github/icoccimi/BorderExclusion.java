@@ -20,7 +20,7 @@ public class BorderExclusion {
         int index = 0;
         List<Integer> idx_to_remove_list = new ArrayList<Integer>();
         for (Roi small_roi : rois) {
-            if (check_rois_exclusive(big_roi, small_roi, partial_overlaps)) {
+            if (!check_overlapping(big_roi, small_roi, partial_overlaps)) {
                 idx_to_remove_list.add(index);
             }
             index++;
@@ -44,15 +44,15 @@ public class BorderExclusion {
         IntStream.range(0, height - 1).forEach(val -> pixel_height[val] = val);
         ip.setColor(0);
         List<Roi> rois = new ArrayList<Roi>();
-        List<Float> vals = new ArrayList<Float>();
+        List<Integer> vals = new ArrayList<Integer>();
         for (int y : pixel_height) {
             for (int x : pixel_width) {
-                float val = ip.getf(x, y);
-                if (val > 0.0) {
+                int val = ip.getPixel(x, y);
+                if (val > 0) {
                     wand.autoOutline(x, y, val, val, Wand.FOUR_CONNECTED);
                     if (wand.npoints > 0) {
                         Roi small_roi = new PolygonRoi(wand.xpoints, wand.ypoints, wand.npoints, Roi.FREEROI);
-                        if (!check_rois_exclusive(big_roi, small_roi, partial_overlaps)) {
+                        if (check_overlapping(big_roi, small_roi, partial_overlaps)) {
                             vals.add(val);
                             rois.add(small_roi);
                         }
@@ -72,19 +72,19 @@ public class BorderExclusion {
         imp.updateAndDraw();
     }
 
-    public static boolean check_rois_exclusive(Roi big_roi, Roi small_roi, boolean partial_overlaps) {
+    public static boolean check_overlapping(Roi big_roi, Roi small_roi, boolean partial_overlaps) {
         ShapeRoi s1 = new ShapeRoi(big_roi);
         ShapeRoi s2 = new ShapeRoi(small_roi);
         s1.and(s2);
         if (s1.getBounds().width == 0 && s1.getBounds().height == 0) {
-            return true;
+            return false;
         }
 
         if (!partial_overlaps) {
             if (!Arrays.equals(small_roi.getContainedPoints(), s1.getContainedPoints())) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }
