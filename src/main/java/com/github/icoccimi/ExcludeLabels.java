@@ -1,8 +1,6 @@
 package com.github.icoccimi;
 import net.imagej.ImageJ;
 import org.scijava.command.Command;
-import org.scijava.menu.MenuConstants;
-import org.scijava.plugin.Menu;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
 
@@ -41,7 +39,7 @@ public class ExcludeLabels implements Command {
         imp.updateImage();
     }
 
-    public static void main(final String[] args) throws Exception {
+    public static void main(final String[] args) {
         final ImageJ ij = new ImageJ();
         ij.ui().showUI();
         ImagePlus imp = IJ.openImage("https://imagej.net/images/blobs.gif");

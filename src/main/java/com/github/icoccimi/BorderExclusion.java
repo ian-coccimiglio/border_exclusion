@@ -18,7 +18,7 @@ public class BorderExclusion {
     public static void remove_external(RoiManager rm, Roi big_roi, boolean partial_overlaps) {
         Roi[] rois = rm.getRoisAsArray();
         int index = 0;
-        List<Integer> idx_to_remove_list = new ArrayList<Integer>();
+        List<Integer> idx_to_remove_list = new ArrayList<>();
         for (Roi small_roi : rois) {
             if (!check_overlapping(big_roi, small_roi, partial_overlaps)) {
                 idx_to_remove_list.add(index);
@@ -43,8 +43,8 @@ public class BorderExclusion {
         IntStream.range(0, width - 1).forEach(val -> pixel_width[val] = val);
         IntStream.range(0, height - 1).forEach(val -> pixel_height[val] = val);
         ip.setColor(0);
-        List<Roi> rois = new ArrayList<Roi>();
-        List<Integer> vals = new ArrayList<Integer>();
+        List<Roi> rois = new ArrayList<>();
+        List<Integer> vals = new ArrayList<>();
         for (int y : pixel_height) {
             for (int x : pixel_width) {
                 int val = ip.getPixel(x, y);
