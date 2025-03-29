@@ -52,7 +52,7 @@ public class ExcludeROIs implements Command {
         imp.setRoi(big_roi);
     }
 
-    public static void main(final String[] args) throws Exception {
+    public static void main(final String[] args) {
         final ImageJ ij = new ImageJ();
         ij.ui().showUI();
         ImagePlus imp = IJ.openImage("https://imagej.net/images/blobs.gif");
