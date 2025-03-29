@@ -63,14 +63,14 @@
 	</mailingLists>
 
 	<scm>
-		<connection>scm:git:https://github.com/ian-coccimiglio/border-exclusion</connection>
-		<developerConnection>scm:git:git@github.com:ian-coccimiglio/border-exclusion</developerConnection>
+		<connection>scm:git:https://github.com/ian-coccimiglio/border_exclusion</connection>
+		<developerConnection>scm:git:git@github.com:ian-coccimiglio/border_exclusion</developerConnection>
 		<tag>HEAD</tag>
-		<url>https://github.com/ian-coccimiglio/border-exclusion</url>
+		<url>https://github.com/ian-coccimiglio/border_exclusion</url>
 	</scm>
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>https://github.com/ian-coccimiglio/border-exclusion</url>
+		<url>https://github.com/ian-coccimiglio/border_exclusion</url>
 	</issueManagement>
 	<ciManagement>
 		<system>None</system>
