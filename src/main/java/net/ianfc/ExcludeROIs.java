@@ -31,7 +31,7 @@ public class ExcludeROIs implements Command {
     ImagePlus imp;
 
     @Parameter
-    private LogService log;
+    LogService log;
 
     @Parameter(label = "Keep Overlaps")
     Boolean keep_overlaps;
