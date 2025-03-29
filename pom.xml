@@ -12,20 +12,20 @@
 		<relativePath />
 	</parent>
 
-	<groupId>net.imagej</groupId>        <!-- FIXME: Your organization groupId here -->
+	<groupId>net.ianfc</groupId>        <!-- FIXME: Your organization groupId here -->
 	<artifactId>border-exclusion</artifactId> <!-- FIXME: Your project artifactId here   -->
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.2.0-SNAPSHOT</version>
 
-	<name>Border Exclusion</name>                                               <!-- FIXME: Your project name here          -->
-	<description>A Maven project implementing Border Exclusion for ROIs, Label, and Binary images </description> <!-- FIXME: Your project description here   -->
-	<url>https://github.com/ian-coccimiglio/border_exclusion</url>                   <!-- FIXME: Your project website here       -->
-	<inceptionYear>2025</inceptionYear>                                        <!-- FIXME: Your project starting year here -->
+	<name>Border Exclusion</name>
+	<description>A Maven project implementing Border Exclusion for ROIs, Label, and Binary images </description>
+	<url>https://github.com/ian-coccimiglio/border_exclusion</url>
+	<inceptionYear>2025</inceptionYear>
 	<organization>
 		<name>ifc_tools</name>           <!-- FIXME: Your organization name here    -->
-		<url>https://github.com/ian-coccimiglio/</url> <!-- FIXME: Your organization website here -->
+		<url>https://ianfc.com</url>
 	</organization>
 	<licenses>
-		<license>                         <!-- FIXME: Your license here -->
+		<license>
 			<name>MIT License</name>
 			<url>https://opensource.org/licenses/MIT</url>
 			<distribution>repo</distribution>
@@ -35,9 +35,9 @@
 	<developers>
 		<!-- See https://imagej.net/Team -->
 		<developer>
-			<id>ian-coccimiglio</id>                                          <!-- FIXME: Your GitHub handle here -->
-			<name>Ian Coccimiglio</name>                            <!-- FIXME: Your name here          -->
-			<url>https://github.com/ian-coccimiglio/</url> <!-- FIXME: Your website here       -->
+			<id>ian-coccimiglio</id>
+			<name>Ian Coccimiglio</name>
+			<url>https://ianfc.com</url>
 			<roles>
 				<role>founder</role>
 				<role>lead</role>
@@ -63,24 +63,22 @@
 	</mailingLists>
 
 	<scm>
-		<connection>scm:git:https://github.com/imagej/example-imagej2-command</connection>
-		<developerConnection>scm:git:git@github.com:imagej/example-imagej2-command</developerConnection>
+		<connection>scm:git:https://github.com/ian-coccimiglio/border-exclusion</connection>
+		<developerConnection>scm:git:git@github.com:ian-coccimiglio/border-exclusion</developerConnection>
 		<tag>HEAD</tag>
-		<url>https://github.com/imagej/example-imagej2-command</url>
+		<url>https://github.com/ian-coccimiglio/border-exclusion</url>
 	</scm>
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>https://github.com/imagej/example-imagej2-command/issues</url>
+		<url>https://github.com/ian-coccimiglio/border-exclusion</url>
 	</issueManagement>
 	<ciManagement>
 		<system>None</system>
 	</ciManagement>
 
 	<properties>
-		<package-name>com.github.icoccimi</package-name>                   <!-- FIXME: Your project package prefix here -->
-		<main-class>com.github.icoccimi.ExcludeLabels</main-class>        <!-- FIXME: Your project main class here, or delete for none -->
-		<license.licenseName>MIT License</license.licenseName>                      <!-- FIXME: Your license-maven-plugin license code here -->
-		<license.copyrightOwners>My Company, Inc.</license.copyrightOwners> <!-- FIXME: Your organization legal entity name here -->
+		<license.licenseName>MIT License</license.licenseName>
+		<license.copyrightOwners>Ian Coccimiglio</license.copyrightOwners>
 	</properties>
 
 	<repositories>
@@ -92,17 +90,17 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>net.imagej</groupId>
-			<artifactId>imagej</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.imagej</groupId>
-			<artifactId>ij</artifactId>
-			<version>1.54f</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>net.imagej</groupId>
 			<artifactId>imagej-legacy</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.imagej</groupId>
+			<artifactId>imagej</artifactId>
 		</dependency>
 	</dependencies>
 </project>

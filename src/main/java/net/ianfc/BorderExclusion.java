@@ -1,5 +1,6 @@
-package com.github.icoccimi;
+package net.ianfc;
 
+import ij.IJ;
 import ij.ImagePlus;
 import ij.gui.PolygonRoi;
 import ij.gui.Roi;
@@ -7,6 +8,7 @@ import ij.gui.ShapeRoi;
 import ij.gui.Wand;
 import ij.plugin.frame.RoiManager;
 import ij.process.ImageProcessor;
+import org.scijava.log.LogService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,7 +16,6 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class BorderExclusion {
-
     public static void remove_external(RoiManager rm, Roi big_roi, boolean partial_overlaps) {
         Roi[] rois = rm.getRoisAsArray();
         int index = 0;
@@ -30,7 +31,18 @@ public class BorderExclusion {
         rm.runCommand("delete");
     }
 
-    public static void remove_external(ImagePlus imp, Roi big_roi, boolean partial_overlaps) {
+    public static int remove_external(ImagePlus imp, Roi big_roi, LogService log, boolean partial_overlaps, int interpolation_amount) {
+        if (interpolation_amount > 0) {
+            if (big_roi.getType() == 1 | big_roi.getType() == 3) {
+                IJ.run(imp, "Interpolate", "interval=" + interpolation_amount + " smooth adjust");
+                big_roi = imp.getRoi();
+            }
+            else {
+                if (log != null) {
+                    log.info("ROI not freehand or oval, skipping interpolation");
+                }
+            }
+        }
         imp.hide();
         ImageProcessor ip = imp.getProcessor();
         Wand wand = new Wand(ip);
@@ -45,6 +57,7 @@ public class BorderExclusion {
         ip.setColor(0);
         List<Roi> rois = new ArrayList<>();
         List<Integer> vals = new ArrayList<>();
+        long startTime = System.currentTimeMillis();
         for (int y : pixel_height) {
             for (int x : pixel_width) {
                 int val = ip.getPixel(x, y);
@@ -61,15 +74,21 @@ public class BorderExclusion {
                 }
             }
         }
+
         for (int i =0; i < rois.size(); i++) {
             Roi small_roi = rois.get(i);
             float val = vals.get(i);
             ip.setColor(val);
             ip.fill(small_roi);
         }
+        long endTime = System.currentTimeMillis();
+        if (log != null) {
+            log.info("Roi exclusion took " + (endTime - startTime) + " milliseconds, interpolation was " + interpolation_amount + ", detected " + rois.size() + " labels");
+        }
 
         imp.show();
         imp.updateAndDraw();
+        return rois.size();
     }
 
     public static boolean check_overlapping(Roi big_roi, Roi small_roi, boolean partial_overlaps) {
@@ -81,9 +100,7 @@ public class BorderExclusion {
         }
 
         if (!partial_overlaps) {
-            if (!Arrays.equals(small_roi.getContainedPoints(), s1.getContainedPoints())) {
-                return false;
-            }
+            return Arrays.equals(small_roi.getContainedPoints(), s1.getContainedPoints());
         }
         return true;
     }

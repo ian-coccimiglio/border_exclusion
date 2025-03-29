@@ -1,7 +1,8 @@
-package com.github.icoccimi;
+package net.ianfc;
 
 import net.imagej.ImageJ;
 import org.scijava.command.Command;
+import org.scijava.log.LogService;
 import org.scijava.menu.MenuConstants;
 import org.scijava.plugin.Menu;
 import org.scijava.plugin.Parameter;
@@ -18,9 +19,9 @@ import ij.plugin.frame.RoiManager;
  *
  */
 @Plugin(type = Command.class, label = "Border Exclude ROIs", menu = {
-        @Menu(label = MenuConstants.PLUGINS_LABEL, weight = Double.POSITIVE_INFINITY, mnemonic = MenuConstants.PLUGINS_MNEMONIC),
-        @Menu(label = "Border Exclusion", weight = Double.POSITIVE_INFINITY, mnemonic = 's'),
-        @Menu(label = "Border Exclude ROIs", weight = Double.POSITIVE_INFINITY, mnemonic = 'e')
+        @Menu(label = MenuConstants.PLUGINS_LABEL, weight = MenuConstants.PLUGINS_WEIGHT, mnemonic = MenuConstants.PLUGINS_MNEMONIC),
+        @Menu(label = "Border Exclusion", weight = 0.5, mnemonic = 's'),
+        @Menu(label = "Border Exclude ROIs", weight = 0.5, mnemonic = 'e')
 })
 public class ExcludeROIs implements Command {
     @Parameter
@@ -28,6 +29,9 @@ public class ExcludeROIs implements Command {
 
     @Parameter
     ImagePlus imp;
+
+    @Parameter
+    private LogService log;
 
     @Parameter(label = "Keep Overlaps")
     Boolean keep_overlaps;
@@ -41,6 +45,9 @@ public class ExcludeROIs implements Command {
         Roi big_roi = imp.getRoi();
         if (big_roi != null) {
             BorderExclusion.remove_external(rm, big_roi, keep_overlaps);
+        }
+        else {
+            log.info("No ROI set, skipping exclusion");
         }
         imp.setRoi(big_roi);
     }
