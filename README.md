@@ -15,7 +15,7 @@ Interpolation: For oval/freehand ROIs, interpolating can speed up the functional
 
 ### Using Border Exclusion
 
-[Exclude_Labels_Example.mp4](assets/Exclude_Labels_Example.mp4)
+![Exclude_Labels_Example.mp4](assets/Exclude_Labels_Example.mp4)
 
 ## Installation
 For now, simply place the border-exclusion-0.2.0-SNAPSHOT.jar file into your Fiji.app/jars directory.
