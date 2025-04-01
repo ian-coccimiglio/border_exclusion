@@ -34,7 +34,7 @@ public class ExcludeLabels implements Command {
     @Parameter(label = "Keep Overlaps")
     Boolean keep_overlaps;
 
-    @Parameter(label = "Interpolation", min="0", description = "Accelerates freehand and oval ROIs by approximating. Set to 0 for no interpolation.")
+    @Parameter(label = "Interpolation", min="0", description = "Accelerates freehand and oval ROIs by interpolating curves. Set to 0 for no interpolation.")
     Integer interpolation=5;
 
     @Override

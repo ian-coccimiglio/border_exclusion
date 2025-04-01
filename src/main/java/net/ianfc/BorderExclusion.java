@@ -34,10 +34,12 @@ public class BorderExclusion {
     public static int remove_external(ImagePlus imp, Roi big_roi, LogService log, boolean partial_overlaps, int interpolation_amount) {
         if (interpolation_amount > 0) {
             if (big_roi.getType() == 1 | big_roi.getType() == 3) {
+                imp.setRoi(big_roi);
                 IJ.run(imp, "Interpolate", "interval=" + interpolation_amount + " smooth adjust");
                 big_roi = imp.getRoi();
             }
             else {
+                interpolation_amount = 0 ;
                 if (log != null) {
                     log.info("ROI not freehand or oval, skipping interpolation");
                 }
