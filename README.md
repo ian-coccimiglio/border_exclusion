@@ -3,10 +3,11 @@
 Have you ever tried to remove labels or ROIs from a dedicated region, but struggled to exclude the objects you were interested in?
 
 Then this plugin is for you!
-* ✅ Works on label images
-* ✅ Works on binary masks
-* ✅ Works on collections of ROIs
+* ✅ Works on 2D label images
+* ✅ Works on 2D binary masks
+* ✅ Works on 2D ROIs
 * ✅ Fast on large images when interpolated
+* ❎ 3D labels/ROIs
 
 Parameters:
 * Keep Overlaps: If true, this will keep any labels/rois overlapping with the boundary. Otherwise, all overlaps are excluded.
@@ -30,7 +31,7 @@ With results:
 
 Post Removal (no interpolation) |  Post Removal (interpolation) 
 :-------------------------:|:-------------------------:
-<img width="500" src="assets/medium_labels_post_exclusion_50.png"> | <img width="500" src="assets/medium_labels_post_exclusion_nointerp.png">
+ <img width="500" src="assets/medium_labels_post_exclusion_nointerp.png"> | <img width="500" src="assets/medium_labels_post_exclusion_50.png">
 
 ## Scripting with Border Exclusion
 A few examples of how to remove ROIs from the Fiji/ImageJ script editor:
@@ -61,7 +62,7 @@ else:
 ```
 
 ## Installation
-For now, simply place the border-exclusion-0.2.0-SNAPSHOT.jar file into your Fiji.app/jars directory.
+For now, simply place the `border-exclusion-0.2.0-SNAPSHOT.jar` file into your `Fiji.app/jars` directory.
 
 ## Contributions
 Any contributions are very welcome! Please file any issues or send a pull-request if you have suggestions.
