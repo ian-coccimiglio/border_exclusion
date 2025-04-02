@@ -34,7 +34,7 @@ public class ExcludeROIs implements Command {
     LogService log;
 
     @Parameter(label = "Keep Overlaps")
-    Boolean keep_overlaps;
+    Boolean keep_overlaps=false;
 
     @Override
     public void run() {

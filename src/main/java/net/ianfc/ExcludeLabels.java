@@ -32,7 +32,7 @@ public class ExcludeLabels implements Command {
     LogService log;
 
     @Parameter(label = "Keep Overlaps")
-    Boolean keep_overlaps;
+    Boolean keep_overlaps=false;
 
     @Parameter(label = "Interpolation", min="0", description = "Accelerates freehand and oval ROIs by interpolating curves. Set to 0 for no interpolation.")
     Integer interpolation=5;
