@@ -34,7 +34,7 @@ Post Removal (no interpolation) |  Post Removal (interpolation)
  <img width="500" src="assets/medium_labels_post_exclusion_nointerp.png"> | <img width="500" src="assets/medium_labels_post_exclusion_50.png">
 
 ## Scripting with Border Exclusion
-A few examples of how to remove ROIs from the Fiji/ImageJ script editor:
+A few examples of how to remove ROIs from the Fiji/ImageJ script editor. The below example is compatible with Jython/Python:
 
 ```python
 #@ LogService ls
@@ -42,7 +42,7 @@ from net.ianfc import BorderExclusion
 from ij import IJ, Prefs
 from ij.gui import OvalRoi
 
-test_code = True
+test_code = True # Set to False to work on your own images
 if test_code:
 	IJ.run("Close All")
 	imp = IJ.openImage("http://imagej.net/images/blobs.gif");
