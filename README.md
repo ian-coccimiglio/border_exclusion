@@ -1,4 +1,4 @@
-## Border Exclusion
+## Border Exclusion in Fiji
 
 Have you ever tried to remove labels or ROIs from a dedicated region, but struggled to exclude the objects you were interested in?
 
