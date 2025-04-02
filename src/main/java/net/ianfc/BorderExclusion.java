@@ -58,11 +58,11 @@ public class BorderExclusion {
         IntStream.range(0, height - 1).forEach(val -> pixel_height[val] = val);
         ip.setColor(0);
         List<Roi> rois = new ArrayList<>();
-        List<Integer> vals = new ArrayList<>();
+        List<Double> vals = new ArrayList<>();
         long startTime = System.currentTimeMillis();
         for (int y : pixel_height) {
             for (int x : pixel_width) {
-                int val = ip.getPixel(x, y);
+                double val = ip.getValue(x, y);
                 if (val > 0) {
                     wand.autoOutline(x, y, val, val, Wand.FOUR_CONNECTED);
                     if (wand.npoints > 0) {
@@ -79,7 +79,7 @@ public class BorderExclusion {
 
         for (int i =0; i < rois.size(); i++) {
             Roi small_roi = rois.get(i);
-            float val = vals.get(i);
+            double val = vals.get(i);
             ip.setColor(val);
             ip.fill(small_roi);
         }
