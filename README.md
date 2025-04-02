@@ -23,15 +23,15 @@ By increasing the interpolation interval, an OvalRoi or Freehand ROI is no longe
 
 The test below was used on a binary image of 2480 by 2512 pixels, using an oval ROI of size (w 1431,h 1281).
 
-Original Image             |  Speed Increase via Interpolation
-:-------------------------:|:-------------------------:
-<img width="500" src="assets/medium_labels_ovalroi.png">  |  <img width="600" src="assets/Algorithm_Acceleration.png" alt="">
+                      Original Image                      |  Speed Increase via Interpolation
+:--------------------------------------------------------:|:-------------------------:
+|  <img width="500" src="assets/medium_labels_ovalroi.png"> |  <img width="600" src="assets/Algorithm_Acceleration.png" alt=""> |
 
 With results:
 
-Post Removal (no interpolation) |  Post Removal (interpolation) 
-:-------------------------:|:-------------------------:
- <img width="500" src="assets/medium_labels_post_exclusion_nointerp.png"> | <img width="500" src="assets/medium_labels_post_exclusion_50.png">
+                      Post Removal (no interpolation)                      |  Post Removal (interpolation) 
+:-------------------------------------------------------------------------:|:-------------------------:
+|  <img width="500" src="assets/medium_labels_post_exclusion_nointerp.png"> | <img width="500" src="assets/medium_labels_post_exclusion_50.png"> |
 
 ## Scripting with Border Exclusion
 A few examples of how to remove ROIs from the Fiji/ImageJ script editor. The below example is compatible with Jython/Python:
@@ -62,7 +62,7 @@ else:
 ```
 
 ## Installation
-For now, simply place the `border-exclusion-0.2.0-SNAPSHOT.jar` file into your `Fiji.app/jars` directory.
+For now, simply place the `border-exclusion-0.2.1-SNAPSHOT.jar` file into your `Fiji.app/jars` directory.
 
 ## Contributions
 Any contributions are very welcome! Please file any issues or send a pull-request if you have suggestions.

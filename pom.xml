@@ -14,7 +14,7 @@
 
 	<groupId>net.ianfc</groupId>
 	<artifactId>border-exclusion</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>0.2.1-SNAPSHOT</version>
 
 	<name>Border Exclusion</name>
 	<description>A Maven project implementing Border Exclusion for ROIs, Label, and Binary images </description>
