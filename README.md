@@ -19,19 +19,21 @@ https://github.com/user-attachments/assets/5b8fc173-e1d9-4ab4-9a23-09a96e390f9f
 
 ## Interpolation acceleration
 
-By increasing the interpolation interval, an OvalRoi or Freehand ROI is no longer subpixel-accurate, but the speed increase is substantial for resolving label images. 
+By setting the interpolation interval, an OvalRoi or Freehand ROI is no longer subpixel-accurate, but the speed increase is substantial for resolving label images. 
 
 The test below was used on a binary image of 2480 by 2512 pixels, using an oval ROI of size (w 1431,h 1281).
 
-                      Original Image                      |  Speed Increase via Interpolation
-:--------------------------------------------------------:|:-------------------------:
-|  <img width="500" src="assets/medium_labels_ovalroi.png"> |  <img width="600" src="assets/Algorithm_Acceleration.png" alt=""> |
 
-With results:
+Original Image                      |  Speed Increase via Interpolation
+|:--------------------------------------------------------:|:-------------------------:|
+<img width="500" src="assets/medium_labels_ovalroi.png"> |  <img width="600" src="assets/Algorithm_Acceleration.png"> 
 
-                      Post Removal (no interpolation)                      |  Post Removal (interpolation) 
+
+Interpolation results:
+
+Post Removal (no interpolation)                      |  Post Removal (interpolation = 50) 
 :-------------------------------------------------------------------------:|:-------------------------:
-|  <img width="500" src="assets/medium_labels_post_exclusion_nointerp.png"> | <img width="500" src="assets/medium_labels_post_exclusion_50.png"> |
+<img width="500" src="assets/medium_labels_post_exclusion_nointerp.png"> | <img width="500" src="assets/medium_labels_post_exclusion_50.png"> 
 
 ## Scripting with Border Exclusion
 A few examples of how to remove ROIs from the Fiji/ImageJ script editor. The below example is compatible with Jython/Python:
